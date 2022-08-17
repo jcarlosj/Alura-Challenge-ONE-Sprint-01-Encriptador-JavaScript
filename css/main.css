@@ -129,7 +129,8 @@ a {
     border: 1px solid #0A3871;
     color: #FFF;
 }
-.btn-decrypt {
+.btn-decrypt,
+.btn-copy {
     color: #0A3871;
     border: 1px solid #0A3871;
 }
