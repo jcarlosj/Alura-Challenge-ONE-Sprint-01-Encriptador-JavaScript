@@ -11,6 +11,7 @@ a {
 .container {
     margin: 0 auto;
     max-width: 94%;
+    width: 100%;
 }
 
 .main {
@@ -53,7 +54,7 @@ a {
 .textarea {
     align-items: center;
     background: #E5E5E5;
-    /* border: none; */
+    border: none;
     color: #0A3871;
     display: flex;
     font-size: 32px;
@@ -61,7 +62,7 @@ a {
     height: 350px;
     justify-content: center;
     line-height: 150%;
-    /* outline: none; */
+    outline: none;
     width: 99%;
     resize: none;
 }
@@ -73,7 +74,6 @@ a {
     display: flex;
     font-size: 32px;
     font-weight: 400;
-    height: 350px;
     justify-content: start;
     line-height: 150%;
     outline: none;
@@ -191,15 +191,20 @@ a {
         margin: 0 auto;
         width: 82%;
     }
-    .container {
+    /* .container {
         max-width: 90%;
-    }
+        width: initial; 
+    } */
     .aside {
         margin: 40px auto;
     }
 }
 
 @media ( min-width: 1240px ) {
+    .container {
+        max-width: 90%;
+        width: initial; 
+    }
     .main {
         justify-content: space-around;
     }
@@ -222,5 +227,8 @@ a {
     .aside-content {
         height: 100%;
         width: 100%
+    }
+    .result {
+        height: 350px;
     }
 }

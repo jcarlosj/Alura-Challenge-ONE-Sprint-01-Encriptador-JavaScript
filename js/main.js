@@ -8,6 +8,7 @@ const code = {
 };
 
 const 
+    anio = document.querySelector( '.anio' ),
     btnEncrypt = document.querySelector( '.btn-encrypt' ),
     btnDecrypt = document.querySelector( '.btn-decrypt' ),
     btnCopy = document.querySelector( '.btn-copy' ),
@@ -15,6 +16,8 @@ const
     defaultEl = document.querySelector( '.aside-content .show-default' ),
     resultEl = document.querySelector( '.aside-content .show-result' ),
     pResultEl = document.querySelector( '.result' ); 
+
+anio.innerHTML = new Date().getFullYear();
 
 btnEncrypt.addEventListener( 'click', () => {
     const message = textareaEl.value.toLowerCase();
@@ -34,7 +37,15 @@ btnDecrypt.addEventListener( 'click', () => {
 
 btnCopy.addEventListener( 'click', () => {
     console.log( 'Click Copy' );
+    copyToClipboard();
 });
+
+function copyToClipboard( str ) {
+    if (navigator && navigator.clipboard && navigator.clipboard.writeText)
+        console.log( navigator.clipboard.writeText(str) )
+      return navigator.clipboard.writeText(str);
+    return Promise.reject('The Clipboard API is not available.');
+};
 
 function decrypt( message ) {
     /* Itera el objeto que contiene la traduccion (code) */
