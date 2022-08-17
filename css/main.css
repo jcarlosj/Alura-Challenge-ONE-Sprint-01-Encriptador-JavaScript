@@ -3,6 +3,11 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
+a {
+    color: #0A3871;
+    text-decoration: none;
+}
+
 .container {
     margin: 0 auto;
     max-width: 94%;
@@ -126,12 +131,17 @@ body {
     text-align: center;
 }
 
-.message {
+.message,
+.copyright {
     color: #495057;
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
     text-align: center;
+}
+
+.copyright {
+    font-size: 14px;
 }
 
 @media ( min-width: 768px ) {
@@ -141,17 +151,20 @@ body {
 }
 
 @media ( min-width: 1024px ) {
-    .header {
+    .footer {
         width: 75%;
     }
     .actions,
     .textarea,
-    .aside  {
-        margin: 0 auto 40px auto;
+    .aside {
+        margin: 0 auto;
         width: 82%;
     }
     .container {
         max-width: 90%;
+    }
+    .aside {
+        margin: 40px auto;
     }
 }
 
@@ -171,7 +184,8 @@ body {
         align-self: stretch;
         display: flex;
         flex: 0 0 400px;
-        height: calc( 70vh );
+        height: 90vh;
         justify-content: center;
+        margin: 40px 0;
     }
 }
