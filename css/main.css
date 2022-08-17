@@ -50,8 +50,7 @@ a {
     padding: 16px 0 80px 0;
 }
 
-.textarea,
-.result {
+.textarea {
     align-items: center;
     background: #E5E5E5;
     /* border: none; */
@@ -69,6 +68,17 @@ a {
 .result {
     align-items: start;
     background: #FFF;
+    border: none;
+    color: #0A3871;
+    display: flex;
+    font-size: 32px;
+    font-weight: 400;
+    height: 350px;
+    justify-content: start;
+    line-height: 150%;
+    outline: none;
+    resize: none;
+    width: 99%;
 }
 
 .aside-content .show-default {
@@ -211,5 +221,6 @@ a {
     }
     .aside-content {
         height: 100%;
+        width: 100%
     }
 }

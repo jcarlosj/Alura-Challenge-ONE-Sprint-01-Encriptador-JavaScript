@@ -3,6 +3,7 @@ const code = {
     'e': 'enter',
     'i': 'imes',
     'o': 'ober',
+    'ó': 'ober',
     'u': 'ufat'
 };
 
@@ -16,7 +17,7 @@ const
     pResultEl = document.querySelector( '.result' ); 
 
 btnEncrypt.addEventListener( 'click', () => {
-    const message = textareaEl.value;
+    const message = textareaEl.value.toLowerCase();
 
     hideDefaultElement();
     encrypt( message );
@@ -24,9 +25,25 @@ btnEncrypt.addEventListener( 'click', () => {
 });
 
 btnDecrypt.addEventListener( 'click', () => {
-    console.log( 'Click Decrypt' );
+    const message = textareaEl.value;
+    
+    decrypt( message );
     hideDefaultElement();
+    // console.log( 'Click Decrypt' );
 });
+
+btnCopy.addEventListener( 'click', () => {
+    console.log( 'Click Copy' );
+});
+
+function decrypt( message ) {
+    /* Itera el objeto que contiene la traduccion (code) */
+    for( let [key, value] of Object.entries( code ) ) {
+        message = message.replaceAll( value, key );
+    }
+
+    pResultEl.innerHTML = message;
+}
 
 function encrypt( message ) {
     const arrWord = message.split( '' );        // Separa cada letra de la palabra en un array
@@ -50,11 +67,3 @@ function hideDefaultElement () {
     defaultEl.style.display = 'none';
     resultEl.style.display = 'flex';
 }
-
-
-
-// `La letra "e" es convertida para "enter"`
-// `La letra "i" es convertida para "imes"`
-// `La letra "a" es convertida para "ai"`
-// `La letra "o" es convertida para "ober"`
-// `La letra "u" es convertida para "ufat"`
