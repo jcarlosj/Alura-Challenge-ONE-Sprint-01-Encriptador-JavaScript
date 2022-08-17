@@ -50,10 +50,11 @@ a {
     padding: 16px 0 80px 0;
 }
 
-.textarea {
+.textarea,
+.result {
     align-items: center;
     background: #E5E5E5;
-    border: none;
+    /* border: none; */
     color: #0A3871;
     display: flex;
     font-size: 32px;
@@ -61,9 +62,28 @@ a {
     height: 350px;
     justify-content: center;
     line-height: 150%;
-    outline: none;
+    /* outline: none; */
     width: 99%;
     resize: none;
+}
+.result {
+    align-items: start;
+    background: #FFF;
+}
+
+.aside-content .show-default {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+}
+.aside-content .show-result {
+    align-content: center;
+    display: none;
+    flex-direction: column;
+    height: 94%;
+    justify-content: space-between;
 }
 
 .actions {
@@ -187,5 +207,8 @@ a {
         height: 90vh;
         justify-content: center;
         margin: 40px 0;
+    }
+    .aside-content {
+        height: 100%;
     }
 }
