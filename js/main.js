@@ -15,24 +15,30 @@ const
     textareaEl = document.querySelector( '#textarea' ),
     defaultEl = document.querySelector( '.aside-content .show-default' ),
     resultEl = document.querySelector( '.aside-content .show-result' ),
-    pResultEl = document.querySelector( '.result' ); 
+    pResultEl = document.querySelector( '.result' ),
+    pInfoEl = document.querySelector( '.info' ); 
 
 anio.innerHTML = new Date().getFullYear();
 
 btnEncrypt.addEventListener( 'click', () => {
-    const message = textareaEl.value.toLowerCase();
+    const message = textareaEl.value;
 
-    hideDefaultElement();
-    encrypt( message );
-    // console.log( 'Click Encrypt' );
+    if( validateString( message ) ) {
+        hideDefaultElement();
+        encrypt( message );
+        // console.log( 'Click Encrypt' );
+    }
 });
 
 btnDecrypt.addEventListener( 'click', () => {
     const message = textareaEl.value;
-    
-    decrypt( message );
-    hideDefaultElement();
-    // console.log( 'Click Decrypt' );
+
+    if( validateString( message ) ) { 
+        decrypt( message );
+        hideDefaultElement();
+        // console.log( 'Click Decrypt' );
+    }
+
 });
 
 btnCopy.addEventListener( 'click', () => {
@@ -73,4 +79,41 @@ function encrypt( message ) {
 function hideDefaultElement () {
     defaultEl.style.display = 'none';
     resultEl.style.display = 'flex';
+}
+
+function validateString( string ) {
+    if( ! string ) {
+        pInfoEl.style.display = 'flex';
+        pInfoEl.innerHTML = 'Ingresa el texto que desees encriptar o desencriptar.';
+
+        return false;
+    }
+    else if( isUpperCase( string ) || hasSpecialChar( string ) ) {
+        pInfoEl.style.display = 'flex';
+        pInfoEl.innerHTML = 'Solo letras minúsculas y sin acentos';
+
+        return false;
+    }
+
+    pInfoEl.style.display = 'none';
+    pInfoEl.innerHTML = '';
+
+    return true;
+}
+
+function isUpperCase( string ) {
+    for ( let i = 0; i < string.length; i++ ) {
+        if ( string.charAt( i ) == string.charAt( i ).toUpperCase() && string.charAt( i ).match( /[a-z]/i ) ) {
+
+            return true;
+        }
+    }
+
+    return false;
+};
+
+function hasSpecialChar(str) {
+    const specialChars = /[áàãâéèêíìîõóòôúùû`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+
+    return specialChars.test(str);
 }
