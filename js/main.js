@@ -36,16 +36,12 @@ btnDecrypt.addEventListener( 'click', () => {
 });
 
 btnCopy.addEventListener( 'click', () => {
-    console.log( 'Click Copy' );
-    copyToClipboard();
+    const cb = navigator.clipboard;
+    cb
+        .writeText( pResultEl.innerText )
+        .then( () => console.log( 'Text copied!' )
+    );
 });
-
-function copyToClipboard( str ) {
-    if (navigator && navigator.clipboard && navigator.clipboard.writeText)
-        console.log( navigator.clipboard.writeText(str) )
-      return navigator.clipboard.writeText(str);
-    return Promise.reject('The Clipboard API is not available.');
-};
 
 function decrypt( message ) {
     /* Itera el objeto que contiene la traduccion (code) */
